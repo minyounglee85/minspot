@@ -1,0 +1,103 @@
+<style>
+#main_header{
+width: 960px;
+margin: 0 auto;
+position: relative;
+}
+#main_header > #gnb {
+position: absolute;
+right:0; top:0;
+}
+
+/*네비게이션*/
+#gnb > ul{ overflow: hidden; }
+#gnb > ul > li{ float: left; }
+#gnb > ul > li > a{}
+
+body{
+	position: relative;
+}
+
+#content{
+	width: 960px; margin: 0 auto;
+	overflow: hidden;
+}
+#content > #main_section {
+	width: 750px;
+	float: left;
+}
+#content > #main_aside{
+	width: 200px;
+	float: right;
+}
+
+/*그리드*/
+ul.rig {
+	list-style: none;
+	font-size: 0px;
+}
+ul.rig li {
+	display: inline-block;
+	padding: 10px;
+	background: #fff;
+	border: 1px solid #ddd;
+	font-size: 16px;
+	font-size: 1rem;
+	vertical-align: top;
+	box-shadow: 0 0 5px #ddd;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+ul.rig li img {
+	max-width: 100%;
+	height: auto;
+	margin: 0 0 10px;
+}
+ul.rig li h3 {
+	margin: 0 0 5px;
+}
+ul.rig li p {
+	font-size: .9em;
+	line-height: 1.5em;
+	color: #999;
+}
+ul.rig.columns-3 li {
+	width: 22.5%; /* this value + 2.5 should = 33% */
+}
+
+/*
+width: 47.5%; //2
+width: 30.83%; //3
+width: 22.5%; //4
+*/
+
+.circle-button{display:block;width:100px;height:100px;border-radius:50px;font-size:20px;color:#fff;line-height:100px;text-align:center;text-decoration:none;background:#000}
+.circle-button:hover{color:#ccc;text-decoration:none;background:#333}
+
+/*이미지 오버 텍스트*/
+#wrapper .text {
+position:relative;
+bottom:30px;
+left:0px;
+visibility:hidden;
+}
+
+#wrapper:hover .text {
+visibility:visible;
+}
+
+/*footer*/
+
+/*text deco*/
+A:link {
+ TEXT-DECORATION: none
+}
+A:visited {
+ TEXT-DECORATION: none
+}
+A:hover {
+ TEXT-DECORATION: none
+}
+
+</style>

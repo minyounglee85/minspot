@@ -1,0 +1,49 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<html>
+<head>
+</head>
+  <body onload="init()">
+    <div class="background"> 
+    <object id="logo" type="image/svg+xml" data="" width="0%"></object>
+    </div>
+    
+    <div class="foreground">
+	    <div id="header">
+	        
+	        <div id="menu">
+			<script>       
+			$.ajax({
+				  url: "images/",
+				  success: function(data){
+				     $(data).find("a:contains(.jpg)").each(function(){
+				        // will loop through 
+				        var images = $(this).attr("href");
+	
+				        $('<p></p>').html(images).appendTo('menu')
+	
+				     });
+				  }
+				});
+			</script>
+            </div>
+      
+	      <div id="progress" class="hide"></div>
+	      <div id="nav" class="hide">
+		  
+		  <button id="prev" title="이전 페이지(←)" type="button" onclick="showPrevPage()">◁</button><!-- 이전 페이지 -->
+		  <button id="next" title="다음 페이지(→)" type="button" onclick="showNextPage()">▷</button><!-- 다음 페이지 -->
+		  
+		  
+	      </div>
+	    </div>
+	    
+	    <div id="mainContent">
+	    <div id="mainText" style="display:none"></div>
+      	<canvas id="mainImage"></canvas>
+      	
+	    </div>
+    </div>
+
+</body>
+</html>

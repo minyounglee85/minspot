@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link href='http://fonts.googleapis.com/css?family=Lato:300,900' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,900' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css' rel='stylesheet' type='text/css'>
+
+<head>
+<link href = 'main.css' rel = 'stylesheet' type = 'text/css'>
+<link href = 'button.css' rel = 'stylesheet' type = 'text/css'>
+</head>
+
+<style>
+body {
+	margin: 3em;
+	font-family: 'Lato', sans-serif; font-weight: 300; opacity: 0.8; width: 90%;}
+}
+h1 { font-family: 'Lato', sans-serif; font-weight: 900;  opacity: 0.8; width: 90%;}
+
+.node {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.link {
+  stroke: #999;
+  stroke-opacity: .6;
+}
+
+
+#graph {
+	margin-top: 50px;
+	position: relative;
+}
+
+.description {
+	position: relative;
+}
+
+</style>
+<title>International Development Statistics</title>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+
+
+<body>
+		<h1>
+			<span class = "boldTitle">Relationships of Nations Visualized</span>
+			<br />by Global Aid Stats
+		</h1>
+		
+		<div id = "intro">
+			<div id = "intro1">
+				<h2>What is this work?</h2>
+						<p> This is the visualization of global aid from Korea to other nations. 
+							We want to see varying relationships among nations using global aid data in 
+							<a href = "http://stats.oecd.org/qwids/">OECD QWIDS</a>. 
+							We used "Force Directed Graph" created by Tim Dwyer and Thomas Jakobsen with <a href="http//d3js.org">d3.js</a>.</p>
+						<p> Insight 1 : We found that the ODA of Korea is only focussed on Asia Countries such as Cambodia, Vietnam, etc.</p>
+						<p> Insight 2 : The ODA of Japan more aided than Korea.</p>
+						<p> Later, I will apply time-event concept to this work to represent the history of giving aid. 
+							Also we will classify nations into certain groups. </p>
+						<p> I will update all county soon :)</p>
+						
+			</div>
+		</div>
+		<div id = "menu">
+				<h2 class = "centerh">VISUALIZATION<h2>
+		</div>
+			<div id = "graph">
+				<a class = "butt" href="korea.html" target="name" lang = "ko">한국</a>
+				<a class = "butt" href="japan.html" target="name" lang = "ko">일본</a>
+				<a class = "butt" href="korea_japan.html" target="name" lang = "ko">한국 + 일본</a>
+
+			</div>
+			<iframe name="name" src="korea.html" width="1050px" height="790px" marginwidth="0" marginheight="0" frameborder="0" scrolling="no"></iframe>
+			
+<!-- 
+<script>
+
+var data = d3.range(100);
+var angle = d3.scale.ordinal().domain(data).rangeBands([0, 2 * Math.PI]);
+
+
+
+var width = 900,
+    height = 800;
+
+var color = d3.scale.category20();
+
+var force = d3.layout.force()
+    .charge(-120)
+    .linkDistance(function(d) { return d.value; })
+    .size([width, height]);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+
+d3.json("korea_japan.json", function(error, graph) {
+  force
+      .nodes(graph.nodes)
+      .links(graph.links)
+      .start();
+
+  var link = svg.selectAll(".link")
+      .data(graph.links)
+    .enter().append("line")
+      .attr("class", "link")
+      .style("stroke-width", 1);
+
+  var node = svg.selectAll(".node")
+      .data(graph.nodes)
+    .enter().append("circle")
+      .attr("class", "node")
+      .attr("r", 6)
+      .style("fill", function(d) { return color(d.group); })
+      .call(force.drag);
+
+  node.append("title")
+      .text(function(d) { return d.name; });
+  
+  link.append("title")
+  .text(function(d) { return d.value; });
+  
+ /*
+  var texts = svg.selectAll("text.label")
+  .data(graph.nodes)
+  .enter().append("text")
+  .attr("class", "label")
+  .attr("fill", "rgb(79,9,9)")
+  .attr("font-family", "Nanum Gothic Coding")
+	.attr("font-size", "0.3em")
+	.attr("fill","rgb(27, 37, 5)")
+  .text(function(d) {  return d.name;  });
+*/
+
+  force.on("tick", function() {
+    link.attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+
+    node.attr("cx", function(d) { return d.x; })
+        .attr("cy", function(d) { return d.y; });
+    /*
+    texts.attr("transform", function(d) {
+    	var tx = d.x;
+   		var ty = d.y + 15;
+   		
+   		if(d.group == 7) {
+   			tx += 5;
+   			ty += 10;
+   		}
+   		
+   		return "translate(" + tx + "," + ty + ")";
+    */
+  //});
+});
+  
+});
+
+</script>
+
+
+ -->
+<footer>
+	<p> Information Design Class Work, Fall, 2013.
+	<p> 
+	    <a href = "mailto:2min095@naver.com">Lee, Minyoung</a> 
+	</p>
+	<p>	<a href = "http://media.ajou.ac.kr/">Depart of Digital Media, Ajou Univ.</a> </p>
+	
+</footer>
+</body>

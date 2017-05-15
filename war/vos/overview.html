@@ -1,0 +1,214 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,900' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css' rel='stylesheet' type='text/css'>
+		
+		<script src="http://code.jquery.com/jquery-latest.js"></script> 
+		<script src="http://d3js.org/d3.v3.min.js"></script>
+		<script type='text/javascript' src="http://code.jquery.com/ui/1.11.0/jquery-ui.min.js"> </script>
+		<script type='text/javascript' src="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css"> </script>
+				
+		<link href = 'main.css' rel = 'stylesheet' type = 'text/css'>
+		<link href = 'button.css' rel = 'stylesheet' type = 'text/css'>
+		
+		<title>Visualization of Seoul Residential Environment</title>
+	</head>
+	
+	<div class="ui-widget">
+    <input id="search">
+    <button type="button" onclick="searchNode()">Search</button>
+	
+	</div>
+	<body>	
+<script>
+
+draw('overview'); // overview 파일이름을 찾아 draw() 함수 실행
+
+function redraw(filename) { //리프레쉬
+	force.stop();
+	draw(filenmae);
+}
+
+// #########################################################################
+// 변수 설정 시작
+
+var width = 900, // 화면 크기 설정
+    height = 800;
+
+var force = d3.layout.force() // 레이아웃 설정
+    .charge(-1600)            // 노드간 탄성 및 이끄는 힘
+    .linkDistance(function(d) { return d.value; }) //가중치 값에 따른 (1~500) 링크(선) 길이 설정
+    .size([width, height]);
+
+var svg = d3.select("body")
+            .append("svg")           // 요소와 데이터가 대응하게 설정
+            .attr("width", width)    // 넓이 지정
+            .attr("height", height); // 높이 지정
+
+// 변수 설정 끝
+//#########################################################################
+
+//#########################################################################
+// 검색 시작
+function searchNode() {
+    var selectedVal = document.getElementById('search').value; // 검책창에서 입력값 받아옴
+    var node = svg.selectAll(".node"); // 노드 대응
+    if (selectedVal == "") {       // 빈값 대응
+    // 빈값 처리
+    } else { // 입력값 대응
+        var selected = node.filter(function (d, i) { // 입력값 selectedVal 값 대응
+            return d.name != selectedVal; // 값 비교 후 true, false 리턴
+        });
+        selected.style("opacity", "0");           // 선택모두 투명처리
+        var link = svg.selectAll(".link")         // 링크 대응
+        link.style("opacity", "0");               // 검색 나머지 투명 처리
+        d3.selectAll(".node, .link").transition() // 검색 결과 후 자연스럽게 페이드아웃
+          .duration(3000)                         // 동작 프레임
+          .style("opacity", 1);                   // 0 -> 1
+    }
+}
+// 검색 끝
+//#########################################################################
+
+function draw(filename) { 
+d3.json(filename + ".json", function(error, graph) { //json 파일 읽어들이기
+
+  	  force
+      .nodes(graph.nodes) // 노드 대응
+      .links(graph.links) // 링크 대응
+      .start();           // force.on() 시작 // 노드 링크 위치 계산.
+
+  var drag = force.drag() // 드래그시 이벤트 
+          .on("dragstart", function dragstart(d) {
+  		d3.select(this)   // 현재 선택한 노드
+  		  .classed("fixed", d.fixed = true); // 드래그시 선택된 노드 고정
+	});
+    
+  var link = svg.selectAll(".link") // 링크 요소를 지정
+      .data(graph.links)            // 데이터를 links요소에 연결
+      .enter()                      // 데이터 개수 많큼 반복
+      .append("line")               // 데이터 개수 많큼 line 추가
+      .attr("class", "link")        // css클래스 지정(main.css)
+      .style("stroke-width", 0.2);  // 링크 선 굵기
+
+  var node = svg.selectAll(".node") // 노드 요소를 지정
+      .data(graph.nodes)		    // 데이터를 nodes요소에 연결
+      .enter()			            // 데이터 개수 많큼 반복
+      .append("circle")             // 데이터 개수 많큼 circle 추가
+      .attr("class", "node")		// css클래스 지정(main.css)
+      .attr("r", function(d) {      // json 노드 그룹 중에서 7타입은 노드 크기를 20, 그 외 6 으로 지정
+      						 if (d.group == 7) {return 20;}
+      						 return 6;
+      						 })
+      .style("fill", function(d) {  //노드 그룹명에 따라 다른 색상코드(rgb) 부여
+      	if (d.group == 1)
+      		return "rgb(237,228,1)";
+      	if (d.group == 2)
+      		return "rgb(0, 208, 221)";
+      	if (d.group == 3)
+      		return "rgb(178,161,255)";
+      	if (d.group == 4)
+      		return "rgb(81, 255, 206)";
+      	if (d.group == 5)
+      		return "rgb(208, 244, 134)";
+      	if (d.group == 6)
+      		return "rgb(109, 215, 105)";
+    
+      	return "rgb(251, 73, 0)"; // 그 외 rgb 지정
+      	
+ 		})
+
+      .on("click", function(d) {
+		// 클릭시 이벤트 
+
+      	})
+
+      .on("dblclick", function(d) {
+      	// 더블클릭시 이벤트
+  		d3.select(this)
+  		  .classed("fixed", d.fixed = false); // 노드 고정 해제
+		})
+
+      .on("mouseover", function(d) { 
+		// 마우스오버 이벤트
+       	  d3.select(this)
+       		.attr('r', 25)  // 순간적으로 노드를 크게함 (가시성 확보)
+       		.transition()
+            .duration(300) // 도형 애니메이션 프레임
+            .attr("r", function(l) {
+                                   if (l.group == 7)  
+                                   return 40; // 노드 중 안정성, 편리성, 쾌적성, 지속성 은 크기를 20으로 리턴
+                                   else return 10;  // 그 외는 6으로 리턴
+                                   });
+                
+            link.style('stroke-width', function(l) {      // 서로 연결된 노드 스타일 설정
+				    if (d === l.source || d === l.target) // 선택된 노드와 연결된 모든 노드를 굴은 선으로 지정 (소스와 타겟이 같다면)
+				    return 0.8; // 서로 연결된 노드의 링크(선) 굵기 지정
+				    else
+				    return 0.1; // 그 외는 원래 크기인 0.1 크기로 
+			});
+			
+       })
+       
+      .on("mouseout", function() { 
+    	    // 마우스 아웃시 이벤트
+       	  d3.select(this)
+       		.attr('r', 25) // 순간적으로 노드를 크게함 (가시성 확보)
+     		.transition()
+            .duration(300) // 도형 애니메이션 프레임
+            .attr("r", function(d) { 
+      				       if (d.group == 7) {return 20;} // 노드 중 안정성, 편리성, 쾌적성, 지속성 은 크기를 20으로 리턴
+      				       return 6;                      // 그 외는 6으로 리턴
+      				       });
+      			
+      		link.style('stroke-width', "0.2"); // 링크(선) 굵기 지정
+      })
+      .call(force.drag); 
+
+  node.append("title")
+      .text(function(d) { return d.info; }); // link 의 info 부분을 추가
+
+  link.append("title")
+      .text(function(d) { return d.value; }); // node 의 value 부분을 추가
+   
+  var texts = svg.selectAll("text.label") // 노드 아래 라벨 텍스트 속성 설정
+                .data(graph.nodes)
+                .enter().append("text")   // 데이터 개수 많큼 text 요소 추가
+                .attr("class", "label")   // CSS지정
+                .attr("fill", "rgb(79,9,9)")
+                .attr("font-family", "Nanum Gothic Coding")
+    			.attr("font-size", "0.7em")
+    			.attr("fill","rgb(27, 37, 5)")
+                .text(function(d) {  return d.name;  }); 
+
+   force.on("tick", function() { // Redraw 노드, 링크 위치 정보 
+	  
+    link.attr("x1", function(d) { return d.source.x; }) // 링크(선)
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+
+    node.attr("cx", function(d) { return d.x; }) // 노드
+        .attr("cy", function(d) { return d.y; });
+        
+    texts.attr("transform", function(d) { // 일반 노드 라벨 위치 지정
+    	var tx = d.x;                     // x좌표
+   		var ty = d.y + 15;                // y좌표
+   		
+   		if(d.group == 7) { // 노드 아래 라벨 텍스트가 뜨는 위치 지정 (안정성, 편리성, 쾌적성, 지속성)
+   			tx += 5;       // x 좌표
+   			ty += 10;      // y 좌표
+   		}
+   		
+        return "translate(" + tx + "," + ty + ")";
+    });
+  });
+  
+});
+}
+
+</script>
+
+</body>
+</html>

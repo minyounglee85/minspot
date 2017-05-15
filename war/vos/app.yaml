@@ -1,0 +1,191 @@
+application: vis-of-seoul
+version: 1
+runtime: php
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /amenity\.html
+  static_files: amenity.html
+  upload: amenity\.html
+
+- url: /amenity\.json
+  static_files: amenity.json
+  upload: amenity\.json
+  
+- url: /amenity_1\.html
+  static_files: amenity_1.html
+  upload: amenity_1\.html
+
+- url: /amenity_1\.json
+  static_files: amenity_1.json
+  upload: amenity_1\.json
+ 
+- url: /amenity_2\.html
+  static_files: amenity_2.html
+  upload: amenity_2\.html
+
+- url: /amenity_2\.json
+  static_files: amenity_2.json
+  upload: amenity_2\.json
+ 
+- url: /amenity_3\.html
+  static_files: amenity_3.html
+  upload: amenity_3\.html
+
+- url: /amenity_3\.json
+  static_files: amenity_3.json
+  upload: amenity_3\.json
+ 
+- url: /amenity_total\.html
+  static_files: amenity_total.html
+  upload: amenity_total\.html
+
+- url: /amenity_total\.json
+  static_files: amenity_total.json
+  upload: amenity_total\.json
+ 
+- url: /button\.css
+  static_files: button.css
+  upload: button\.css
+
+- url: /convenience\.html
+  static_files: convenience.html
+  upload: convenience\.html
+
+- url: /convenience\.json
+  static_files: convenience.json
+  upload: convenience\.json
+ 
+- url: /convenience_1\.html
+  static_files: convenience_1.html
+  upload: convenience_1\.html
+
+- url: /convenience_1\.json
+  static_files: convenience_1.json
+  upload: convenience_1\.json
+
+- url: /convenience_2\.html
+  static_files: convenience_2.html
+  upload: convenience_2\.html
+
+- url: /convenience_2\.json
+  static_files: convenience_2.json
+  upload: convenience_2\.json
+
+- url: /convenience_3\.html
+  static_files: convenience_3.html
+  upload: convenience_3\.html
+
+- url: /convenience_3\.json
+  static_files: convenience_3.json
+  upload: convenience_3\.json
+
+- url: /convenience_total\.html
+  static_files: convenience_total.html
+  upload: convenience_total\.html
+
+- url: /convenience_total\.json
+  static_files: convenience_total.json
+  upload: convenience_total\.json
+
+- url: /main\.css
+  static_files: main.css
+  upload: main\.css
+
+- url: /overview\.html
+  static_files: overview.html
+  upload: overview\.html
+  
+- url: /overview\.json
+  static_files: overview.json
+  upload: overview\.json
+
+- url: /seoul\.png
+  static_files: seoul.png
+  upload: seoul\.png
+
+- url: /stability\.html
+  static_files: stability.html
+  upload: stability\.html
+  
+- url: /stability\.json
+  static_files: stability.json
+  upload: stability\.json
+
+- url: /stability\.html
+  static_files: stability.html
+  upload: stability\.html
+  
+- url: /stability\.json
+  static_files: stability.json
+  upload: stability\.json
+
+- url: /stability_1\.html
+  static_files: stability_1.html
+  upload: stability_1\.html
+  
+- url: /stability_1\.json
+  static_files: stability_1.json
+  upload: stability_1\.json
+
+- url: /stability_2\.html
+  static_files: stability_2.html
+  upload: stability_2\.html
+  
+- url: /stability_2\.json
+  static_files: stability_2.json
+  upload: stability_2\.json
+
+- url: /stability_3\.html
+  static_files: stability_3.html
+  upload: stability_3\.html
+  
+- url: /stability_3\.json
+  static_files: stability_3.json
+  upload: stability_3\.json
+  
+- url: /stability_4\.html
+  static_files: stability_4.html
+  upload: stability_4\.html
+  
+- url: /stability_4\.json
+  static_files: stability_4.json
+  upload: stability_4\.json
+  
+- url: /stability_total\.html
+  static_files: stability_total.html
+  upload: stability_total\.html
+  
+- url: /stability_total\.json
+  static_files: stability_total.json
+  upload: stability_total\.json 
+  
+  
+- url: /sustainability\.html
+  static_files: sustainability.html
+  upload: sustainability\.html
+  
+- url: /sustainability\.json
+  static_files: sustainability.json
+  upload: sustainability\.json 
+  
+- url: /sustainability_1\.html
+  static_files: sustainability_1.html
+  upload: sustainability_1\.html
+  
+- url: /sustainability_1\.json
+  static_files: sustainability_1.json
+  upload: sustainability_1\.json 
+
+- url: /sustainability_total\.html
+  static_files: sustainability_total.html
+  upload: sustainability_total\.html
+  
+- url: /sustainability_total\.json
+  static_files: sustainability_total.json
+  upload: sustainability_total\.json  
+  
+- url: .*
+  script: index.html
+

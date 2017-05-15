@@ -1,0 +1,38 @@
+<!-- 
+* 제이쿼리 모바일 페이지 구조
+1) 페이지 : 브라우저에 보여지는 전체화면 영역(data-role="page") -> 헤더, 콘텐츠, 푸터를 포함하는 컨테이너 역할
+2) 헤더 : 페이지 상단의 툴바 영역(data-role="header")
+3) 콘텐츠 : 페이지 중앙의 실제 페이지 내용이 표시되는 영역(data-role="content")
+4) 푸터 : 페이지 하단의 툴바 영역(data-role="footer")
+5) data-role로 div속성 설정.
+ -->
+
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+<body>
+	<div data-role="page">
+		<div data-role="header" data-position="fixed">
+			<h1>alluvial 모델 시각화</h1>
+		</div>
+		
+		<div data-role="content">
+		<iframe name="name" src="alluvial.html" width="1050px" height="700px" marginwidth="0" marginheight="0" frameborder="0" scrolling="no"></iframe>
+		</div>
+		
+		
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="index.html" data-icon="home">Main</a></li>
+					<li><a href="two.html" data-icon="star">two</a></li>
+					<li><a href="three.html" data-icon="grid">Three</a></li>
+					<li><a href="four.html" data-icon="gear">Four</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+
+</body>

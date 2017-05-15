@@ -1,0 +1,29 @@
+<html>
+<script type="application/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script type="application/javascript" src="jquery.xdomainajax.js"></script>
+<script>
+$('#container').load('http://google.com'); // SERIOUSLY!
+
+$.ajax({
+    url: 'http://www.medialog.co.kr/download/1.zip',
+    type: 'GET',
+    success: function(res) {
+        var headline = $(res.responseText).find('.zip').text();
+        var headline2 = $(res.responseText).find('.zip').attr('src');
+        var content = $(res.responseText).text();
+        console.log("original res = ", res);
+        console.log("headline = ", headline);
+        console.log("headline2 = ", headline2);
+        console.log("content = ", content);
+        console.log("res.responseText = ", res.responseText);
+        
+    }
+});
+ 
+// Works with $.get too!
+</script>
+<input type='text' id='a' name='a'> 
+
+<button id='btn'>¹öÆ°</button> 
+
+</html>

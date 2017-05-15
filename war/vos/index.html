@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,900' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css' rel='stylesheet' type='text/css'>
+		
+		<script src="http://code.jquery.com/jquery-latest.js"></script> 
+		<script src="http://d3js.org/d3.v3.min.js"></script>
+				
+		<link href = 'main.css' rel = 'stylesheet' type = 'text/css'>
+		<link href = 'button.css' rel = 'stylesheet' type = 'text/css'>
+		
+		<title>Visualization of Seoul Residential Environment</title>
+	</head>
+	<body>
+		<h1>
+			<span class = "boldTitle">VISUALIZATION OF SEOUL</span>
+			<br/>RESIDENTIAL ENVIRONMENT
+		</h1>
+		<div id = "intro">
+			<div id = "intro1">
+				<h2>What is this work?</h2>
+					<p class = "explanation_main">
+						This is the visualization of city Seoul in Korea re-locating 25 districts with residential environment data. We collected residential environment data of each district in seoul from <a href = "http://data.seoul.go.kr">Seoul Open Data Square</a>.
+						After analyzing these data, we visualized it using <a href = "http://d3js.org">d3</a>, the famous web-based visualization tool.
+						Basically there are four elements of residential environment —Stability, Amenity, Convenience, Sustainability— and 25 districts are re-located around these elements.
+						Now you can see residential environment of each district easily.  
+						Enjoy it!
+					</p>
+					<div id="div_toggle1"> 
+						<div id="div_toggle_content1" style="display:none;" align="left"> 
+							<h3>Unique Point</h3>
+							<p lang = "ko">
+								이 시각화는 안정성, 쾌적성, 편리성, 지속가능성 등 네 가지 기본 속성을 바탕으로 서울의 25개 구와 그 관계들을 화면상에 나타내고 있다. 어떤 구가 어떤 속성이 높은지 혹은 낮은지를 직관적으로 비교할 수 있으며, 비슷한 위치에 있는 구들은 서로 비슷한 주거 환경을 가지고 있음을 시각적으로 쉽게 유추할 수 있다. 기본적인 네 가지 분류는 버튼을 눌러 하위 속성으로 쪼개어 볼 수 있게 하였으며, 이 과정을 통해 특정 구의 주거 환경을 더욱 세부적으로 관찰할 수 있다.
+							</p>
+							<h3>Academic Contribution</h3>
+							<p lang = "ko">
+								우리는 이 프로젝트를 진행하면서 <a href = "http://en.wikipedia.org/wiki/Force-directed_graph_drawing">Force-directed Grpah</a>를 사용하여 기존의 지리적인 배치를 다른 속성에 따라 재배치한다는 측면에 의의를 두었다. 
+								학기 초부터 지리적 정보와 그것들의 관계를 공간 상에 재배치하는 주제를 가지고 다양한 데이터를 가지고 실험하면서, 
+								어떤 속성들의 관계를 시각적으로 표현하는 데에는 Force-directed Graph가 적합하다는 사실을 깨닫게 되었다. 
+								최종적으로는 서울시 25개 구의 주거 환경을 분석하여 도출한 속성을 기반으로 기존 지리적인 배치를 무너뜨리고 새로운 공간에 재배치함으로써 정보를 쉽게 인지할 수 있도록 하였다. 
+							</p>
+						</div> 
+						<div id="btn_toggle1" align = "center">▼</div> 
+					</div>
+			</div>
+			<div id = "intro2">
+					<h2>How did we handle data?</h2>
+						<p class = "explanation_main">
+							We found previous research about residential environment, and this paper said that there are four basic factor —Stability, Amenity, Convenience, Sustainability— and related elements measuring residental environmet. 
+							For example, if you want to measure 'Convenience', you need to research what transportation there are, how many parking lots there are, how many convinient facillities in there.
+							We gathered such residential environment data from <a href = "http://data.seoul.go.kr">Seoul Open Data Square</a>.
+							And to guarantee our reliability, we statically analyze thoes data using <a href = "http://en.wikipedia.org/wiki/SPSS">SPSS</a> tool.
+							
+						</p>
+						<div id="div_toggle2"> 
+						<div id="div_toggle_content2" style="display:none;" align="left"> 
+							<h3>Previous Works</h3>
+							<p lang = "ko">주거환경 분석과 공간 시각화에 관련된 다양한 논문들을 참고하였다. 너무 많은 참고 자료들이 있으므로 정리되는대로 링크를 남길 예정이다.</p>
+						<h3>Gathering Data</h3>
+							<p>Below are the data we gathered and explanation of four basic factors.</p>
+							<ol>Overview : An overview page of Stability, Convenience, Amenity and Sustainability.</ol>
+								<li>Stability : Overview of life safe, Crime prevention, Firefighting and Flooding control.</li>
+								<li>Convenience : Overview of public transportaion, Park system, Convenient facilities.</li>
+								<li>Amenity : Overview of green track of land, Openness space, Noise reduce.</li>
+								<li>Sustainability : Overview of energy and Enviroment-friendly.</li>
+							
+							<ol>Stability : A stability page of Life safe, crime prevention, firefighting and flooding control. </ol>
+							<li>Life safe : A dangerous article and building without a license.</li>
+							<li>Crime prevention : Police station and sanitation facility. </li>
+							<li>Firefighting : Lake density, the incidence of outbreak of fire and Number of fire station.</li>
+							<li>Flooding control : Rate of green tract of land and the incidence of flood damage. </li>
+
+							<ol>Convenience : A convenience page of Public transportaion, Park system and Convenient facilities. </ol>
+							<li>Public transportaion : Satisfaction. </li>
+							<li>Park system : Number of park and park area per unit. </li>
+							<li>Convenient facilities : Shoping mall, medical facilities and culture physical training facilities. </li>
+
+							<ol>Amenity : An amenity page of Green track of land, Openness space and Noise reduce. </ol>
+							<li>Green track of land: Rate of green tract, number of park and water pollution.</li>
+							<li>Openness space : Lake density and park area per unit.</li>
+							<li>Noise reduce : Noise and vibration discharging facility, a dangerous article, space rate of road and air pollution. </li>
+							
+							<ol>Sustainability : A sustainability page of Energy and Enviroment-friendly. </ol>
+							<li>Energy and Enviroment-friendly : Town gas, rate of green tract of land, space rate of road, air pollution and water pollution. </li>
+						<h3>Analysis of Information</h3>
+							<p lang = "ko">Excel과 통계 프로그램을 활용하여 각 데이터가 통계적으로 유의한지 확인하고 값을 보정하였다. 
+								엑셀을 활용하여 값들이 동일한 범위 안에 정규분포하도록 값을 보정하였다. 이 값을 역수로 취하여 값이 클수록 화면상에 거리가 가깝게 표시되도록 하였다.</p>
+							<p lang = "ko">프로젝트 진행 중 지리적인 정보를 추가적으로 함께 나타내는 것이 어떻겠냐는 의견이 있어, 생활권 각 구의 지리적 위치를 고려하여 도심권, 동북생활권, 서남생활권, 동남생활권, 강남생활권, 강북생활권의 다섯 가지 그룹으로 나누었다.</p>
+						</div> 
+						<div id="btn_toggle2" align = "center">▼</div> 
+					</div>
+			</div>
+			<div id = "intro3">
+					<h2>Why did we visualize?</h2>
+						<p>Through this visualization, you can see the residential environment information intuitively. You can find similar districts based on residential data. You can see certain district's residential elements easily. In conclusion, you can see the relationship among the districts, also you can see each district's value indivisually.</p>
+						<div id="div_toggle3"> 
+							<div id="div_toggle_content3" style="display:none;" align="left"> 
+								<h3>Explanation</h3>
+								<ol>Below is the method that use this visualization.</ol>
+								<li>Drag : Move node</li>
+								<li>Double click : Lift gravity node</li>
+								<li>Node : Districts(Gu) of Seoul</li>
+								<li>Link : Value</li>
+								
+								<h3>Example</h3>
+								<p lang = "ko"> 향후 예시를 추가할 예정입니다.</p>
+							</div> 
+							<div id="btn_toggle3" align = "center">▼</div> 
+					</div>
+							
+						
+			</div>
+		</div>
+			<div id = "menu">
+				<h2 class = "centerh">VISUALIZATION<h2>
+			</div>
+			<div id = "graph">
+				<a class = "butt" href="overview.html" target="name">Overview</a>
+				<a class = "butt" href="stability.html" target="name" lang = "ko">안정성</a>
+				<a class = "butt" href="amenity.html" target="name" lang = "ko">쾌적성</a>
+				<a class = "butt" href="convenience.html" target="name" lang = "ko">편리성</a>
+				<a class = "butt" href="sustainability.html" target="name" lang = "ko">지속가능성</a>
+			</div>
+			<iframe name="name" src="overview.html" width="1050px" height="790px" marginwidth="0" marginheight="0" frameborder="0" scrolling="no"></iframe>
+		
+<script> 
+//임시방편으로...
+		$("#div_toggle1").click(function () { 
+			if ($("#div_toggle_content1").is(":hidden")) { 
+				  $("#div_toggle_content1").slideDown("slow"); 
+			   $("#btn_toggle1").html("▲"); 
+				  } else { 
+				  $("#div_toggle_content1").slideUp("slow"); 
+			   $("#btn_toggle1").html("▼"); 
+			} 
+		}); 
+		
+		$("#div_toggle2").click(function () { 
+			if ($("#div_toggle_content2").is(":hidden")) { 
+				  $("#div_toggle_content2").slideDown("slow"); 
+			   $("#btn_toggle2").html("▲"); 
+				  } else { 
+				  $("#div_toggle_content2").slideUp("slow"); 
+			   $("#btn_toggle2").html("▼"); 
+			} 
+		}); 
+		
+		$("#div_toggle3").click(function () { 
+			if ($("#div_toggle_content3").is(":hidden")) { 
+				  $("#div_toggle_content3").slideDown("slow"); 
+			   $("#btn_toggle3").html("▲"); 
+				  } else { 
+				  $("#div_toggle_content3").slideUp("slow"); 
+			   $("#btn_toggle1").html("▼"); 
+			} 
+		});
+		
+</script> 
+<div id = "seoul_map">
+	<img src = "seoul.png" 
+		alt = "서울시 지도를 지리적인 다섯 부분으로 나누어 색을 칠하였습니다" 
+		width = "150" />
+</div>
+<footer>
+	<p> Information Design Class Work, Fall, 2013.
+	<p> 
+	    <a href = "mailto:2min095@naver.com">Lee, Minyoung</a> | 
+		<a href = "mailto:nidoking_v@naver.com">Ahn, Sanghyun  | 
+		<a href = "mailto:kbstar.c@gmail.com">Park, Kibeom</a> | 
+		<a href = "mailto:kwlee@ajou.ac.kr">Prof. Lee, Kyung-won</a>
+	</p>
+	<p>	<a href = "http://media.ajou.ac.kr/">Depart of Digital Media, Ajou Univ.</a> </p>
+	
+</footer>
+</body>
+</html>

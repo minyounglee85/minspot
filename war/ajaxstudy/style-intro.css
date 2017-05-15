@@ -1,0 +1,213 @@
+body 	{
+	background: #000000 url("images/background-intro.jpg") no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	margin: 0px;
+	padding: 0px;
+	border: #000000 0px solid;
+	}
+
+html, body	{ height: 100%; }
+
+
+
+
+
+
+/* LINK COLORS */
+
+a:link, a:visited, a:active	{ color: #A1D9FF; text-decoration: none; }
+
+a:hover				{ color: #66FFFF; text-decoration: none; }
+
+
+
+
+
+
+/* THIS LINE CONTROLS THE GENERAL FONT SIZE */
+
+body		{ color: #D5E0F3; font: normal 0.9em arial, sans-serif; }
+
+.title		{ color: #FFFFFF; font: normal 1.3em  "Trebuchet MS", arial, sans-serif; text-decoration: none; }
+
+.hilite		{ color: #FFCC66; }
+
+
+
+
+
+
+/* PAGE ALIGNMENT WIDTHS HEIGHTS */
+
+.pagewrapper	{
+		width: 100%;
+		height: 100%;
+		margin: 0px auto 0px auto;
+		border: #999999 0px solid;
+		}
+
+.pagewrapper td { text-align: center; vertical-align: middle; }
+
+.content-inner {  max-width: 100%; margin: 0px auto; }
+
+.content-outer 	{
+		max-width: 590px;
+		min-width: 210px;
+		min-height: 390px;
+		text-align: center;
+		background-color: transparent;
+/* ----- SHADE COLORS LOOK IN THE "picts/shading" FOLDER FOR MORE COLORS */
+		background-image:url("images/shading/shade-blue-70.png");
+		border: #3366FF 2px solid;
+		background-position: 0px 0px;
+		background-repeat: repeat;
+		padding: 25px;
+		margin: 18px auto 0px auto;
+		}
+
+.textdiv	{
+		min-width: 210px;
+		max-width: 420px;
+		float: left;
+		text-align: left;
+		padding: 0px;
+		margin: 8px 0px 0px 0px;
+		}
+
+.imagediv	{
+		width: 130px;
+		float: left;
+		text-align: center;
+		padding: 0px;
+		margin: 8px 16px 0px 0px;
+		}
+
+.floatclear	{ clear: both; font-size: 1px; padding: 0px; margin: 0px; height: 1px; }
+
+
+
+
+
+
+/* ADJUST VERTICAL ALIGNMENT */
+
+.adjustvert	{ height: 50px; }
+
+
+
+
+/* MUSIC PLAYER */
+
+.musicplayer		{ width: 98%; }
+
+.musicplayerwidth	{
+			max-width: 500px;
+			min-width: 210px;
+			}
+
+
+
+
+
+
+/* ALIGNMENT */
+
+table, tr, td	{ border-collapse:collapse; border-spacing: 0; margin: 0; padding: 0; border: 0; }
+
+.td-right 	{ text-align: right; }
+
+.td-left 	{ text-align: left; }
+
+.td-center	{ text-align: center; }
+
+.td-middle	{ vertical-align: middle; }
+
+.td-top		{ vertical-align: top; }
+
+.center-div	{ margin-left: auto; margin-right: auto; }
+
+.left-div	{ margin-left: 0px; margin-right: auto; }
+
+.right-div	{ margin-left: auto; margin-right: 0px; }
+
+
+
+
+
+
+/* BORDERS AND BARS */
+
+.page-splits	{
+		min-width: 99%;
+		font-size: 0.1em;
+		line-height: 1px;
+		border-bottom: #3366FF 1px solid;
+		height: 3px;
+		margin: 12px 0px 12px 0px;
+		}
+
+
+/* IMAGES */
+
+.img-borders	{
+		display: block;
+		margin: 0px auto 8px auto;
+		border: #3366FF 1px solid;
+		}
+
+
+
+
+
+
+/* INTRO FLAGS CODE */
+
+.flagtable	{ background-color: transparent; }
+
+#flagicondiv	{
+		padding: 3px 10px 0px 0px;
+		margin: 0px;
+		background-color: transparent;
+		border: #999999 0px solid;
+		}
+
+.flagiconarea	{
+		width: 95px;
+		text-align: center;
+		float: left;
+		padding: 0px 0px 0px 0px;
+		}
+
+
+.flagicon 	{ display: block; border: 2px solid #152B54; margin: 6px auto 2px auto; }
+
+.flagicon:hover { border: 2px solid #FFFFFF; }
+
+
+
+
+
+
+/***************
+Media Queries - RESPONSIVE FOR SMALLER MOBILE SCREENS
+***************/
+
+@media handheld and (max-width: 480px),
+   screen and (max-device-width: 480px),
+   screen and (max-width: 480px) 
+	{
+
+.content-outer 	{
+		padding: 9px;
+		margin: 0px auto 0px auto;
+		}
+
+	}
+
+
+
+
+

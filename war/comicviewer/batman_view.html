@@ -1,0 +1,42 @@
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="css/kthoom.css" type="text/css"/>
+    <script type="application/javascript" src="js/viewerComic.js"></script>
+    <script type="application/javascript" src="js/kthoom.js"></script>
+    <script type="application/javascript" src="bitjs/archive.js"></script>
+</head>
+
+  <body onload="init()">
+  
+    <div class="background"> 
+    <object id="logo" type="image/svg+xml" data="" width="0%"></object>
+    </div>
+  
+    <div class="foreground">
+    
+	    <div id="header">
+	    
+          <div id="menu">
+          <script>comic2();</script>
+          </div>
+          
+	      <div id="progress" class="hide"></div>
+	      <div id="nav" class="hide">
+		  
+		  <button id="prev" title="이전 페이지(←)" type="button" onclick="showPrevPage()">◁</button><!-- 이전 페이지 -->
+		  <button id="next" title="다음 페이지(→)" type="button" onclick="showNextPage()">▷</button><!-- 다음 페이지 -->
+		    
+	      </div>
+	    </div>
+	    
+	    <div id="mainContent">
+	    <div id="mainText" style="display:none"></div>
+      	<canvas id="mainImage"></canvas>
+      	
+	    </div>	    
+    </div>
+
+</body>
+</html>

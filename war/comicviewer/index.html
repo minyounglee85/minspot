@@ -1,0 +1,116 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>웹툰뷰어</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta http-equiv="Cache-Control" content="max-age=1200">
+<link rel="stylesheet" href="style-intro.css" type="text/css">
+</head>
+
+<body>
+
+	<!-- 래퍼 -->
+	<table class="pagewrapper">
+		<tr>
+			<td class="td-middle">
+				<!-- 콘텐츠 아웃터 -->
+				<div class="content-outer">
+
+					<!-- 콘텐츠 이너 -->
+					<div class="content-inner">
+
+						<!-- 이미지 -->
+						<div class="imagediv">
+							<img src="images/intro-image.jpg" width="125" height="170"
+								class="img-borders" alt="Image">
+
+						</div>
+
+
+						<!-- 텍스트 입력 -->
+						<div class="textdiv">
+							<span class="title"> 웹 사이트 소개:<br>
+
+							</span> 지원자 이민영<br>
+							<br> 개발 환경 : Eclipse GWT<br>
+							<br> 과제 설명 : 타 서버의 URL zip 파일을 활용하여 자신만의 웹툰 뷰어 개발하기.</br>
+							</br> 과제 1) 파일을 다운로드하여 보여주는 것이 아니라 http로 압축파일을 가져오고 압축을 푼다. </br>
+							</br> 과제 2) 온라인상에서 압축을 풀고 화면에 바로 뿌려준다.<br></br> 과제 3) 크로스도메인 문제를
+							클라이언트에서 해결한다. (서버측은 어떠한 Allow 정책도 제공하지 않는다.)</br>
+							</br> 과제 4) 1.zip의 1.jpg ~ 40.jpg 순서대로 뷰어되어야 한다.</br>
+							</br> <br> <span class="title"> 해결 방법:<br>
+
+							</span> [파일 로드 방법]</br> Proxy Servlet을 활용한다<br> <br> [라이브러리]<br>
+							kthoom.js / archive.js / viewerComic.js</br> <br> [게시판]<br>
+							구글앱엔진 Datastore / JSP </br> <br>
+							<br>
+							<div class="page-splits"></div>
+
+							<!-- 메뉴 시작 -->
+							<table class="center-div flagtable">
+								<tr>
+									<td>
+										<div id="flagicondiv">
+
+											<!-- 메뉴 버튼 -->
+											<div class="flagiconarea">
+												<a
+													href="http://minyoung-lee.appspot.com/comicviewer/view.html">온라인
+													접속<br>크롬 최적화<br>
+											</div>
+
+											<div class="floatclear"></div>
+										</div>
+
+									</td>
+								</tr>
+							</table>
+
+							<!-- 버튼 끝 -->
+							<div class="page-splits"></div>
+
+						</div>
+						<!-- 텍스트 입력 끝 -->
+
+						<!-- 디비전 클리어 -->
+						<div class="floatclear">
+							<br>
+						</div>
+
+
+					</div>
+					<!-- 콘텐츠 이너 끝 -->
+
+
+				</div> <!-- 콘텐츠 아웃터 끝 --> <!-- 높이 조절 --> <br>
+			<div class="adjustvert">
+					&nbsp;<br>
+				</div>
+				<br>
+
+
+			</td>
+		</tr>
+	</table>
+	<!-- 래퍼 끝-->
+
+
+	<script>
+		(function(i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r;
+			i[r] = i[r] || function() {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date();
+			a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+			a.async = 1;
+			a.src = g;
+			m.parentNode.insertBefore(a, m)
+		})(window, document, 'script',
+				'//www.google-analytics.com/analytics.js', 'ga');
+
+		ga('create', 'UA-71334476-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+
+</body>

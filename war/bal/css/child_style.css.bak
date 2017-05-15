@@ -1,0 +1,83 @@
+/*
+Theme Name: Avada Child
+Description: Child theme for the Avada
+Author: Your name here
+Template: Avada
+*/
+
+@import url("http://minyoung-lee.appspot.com/bal/css/child_style.css");
+
+.home .columns {margin-bottom: 0}
+
+.header-v4 .social-networks .userinfo a {text-indent: 0 !important;line-height: 26px;padding: 0 6px;} 
+.header-v4 .social-networks .userinfo span {float: left;line-height: 26px}
+.header-social .social-networks {max-width: 500px;}
+
+.event_title.ui-corner-all, .event_title.ui-corner-top, .event_title.ui-corner-left, .event_title.ui-corner-tl {
+	border-radius: 0;
+}
+
+.event-display-boxes .ui-widget-header {background: #009fe8 !important;color: #fff !important;padding-top: 0.3em;padding-bottom: 0.3em;border-bottom: none;}
+.event-display-boxes p.espresso_confirm_registration {text-align: center;}
+#payment-options-dv {display: none;}
+#external-link-msg-pg {display: none;}
+
+#footer .social-networks li.custom {opacity: 0.2}
+.clients-carousel .es-carousel li img {border: none;}
+.event_espresso_form_wrapper form p.event_form_submit {text-align: center;}
+.event_espresso_form_wrapper form p.event_form_submit input[type="submit"]{font-size: 14px;padding: 8px 15px;background: #009fe8;color: #fff;border: none}
+form p.espresso_confirm_registration a.btn_event_form_submit{font-size: 14px;padding: 12px 35px;background: #009fe8;color: #fff;border: none;border-radius: 0;line-height: 60px;}
+
+.event_espresso_form_wrapper label.error, .event_espresso_form_wrapper span.error {vertical-align: middle;margin-left: 8px}
+
+.portfolio-content dl.adopt-meta {width: 100%;overflow: hidden;clear: both;margin: 0;}
+.portfolio-content dl.adopt-meta dt {float: left;width: 28%;padding: 6px 0;color: #666;line-height: 18px;margin: 0;}
+.portfolio-content dl.adopt-meta dd {float: left;padding: 6px 0;width: 70%;line-height: 18px;font-weight: bold;margin: 0;}
+
+.portfolio-content dl.shop-meta {width: 100%;overflow: hidden;clear: both;margin: 0;font-size: 12px;}
+.portfolio-content dl.shop-meta dt {float: left;width: 32%;padding: 6px 0;color: #666;line-height: 18px;margin: 0;}
+.portfolio-content dl.shop-meta dd {float: left;padding: 6px 0;width: 65%;line-height: 18px;font-weight: bold;margin: 0;}
+
+.center {text-align: center;}
+.center .fontawesome-icon {float:none}
+
+.portfolio-full .flexslider {width: 60%;margin: 0 auto;}
+
+.shop.project-description.post-content {float: none;margin: 0 auto;}
+.mvct-btn-wrap {margin: 0;padding: 0;text-align: center;}
+.mvct-btn-wrap a.btn {background: #E00201;color: #FFF;padding: 6px 18px;font-size: 14px;display: inline-block;margin: 0 auto;}
+
+/* API에 의한 연동만 한다. */
+.btn-mvct-buy {display: none !important;}
+
+/* header customize */
+.header-v4 #header {padding:35px 0px 20px}
+.header-v4 .social-networks .userinfo a {opacity: 1}
+.header-v4 .social-networks .userinfo a:hover {text-decoration: underline;}
+
+.header-v4 #small-nav {border-bottom: none;}
+
+.header-v4 #menu-item-29 > a {background: url('../Avada/images/custom/icon_intro.png') center top no-repeat;cursor: default;}
+.header-v4 #menu-item-46 > a {background: url('../Avada/images/custom/icon_service.png') center top no-repeat;width: 50px;text-align: center;cursor: default;}
+.header-v4 #menu-item-172 > a {background: url('../Avada/images/custom/icon_seminar.png') center top no-repeat;width: 50px;text-align: center;cursor: default;}
+.header-v4 #menu-item-4489 > a {background: url('../Avada/images/custom/icon_education.png') center top no-repeat;cursor: default;}
+.header-v4 #menu-item-4244 > a {background: url('../Avada/images/custom/icon_join.png') center top no-repeat;cursor: default;}
+.header-v4 #menu-item-4947 > a {background: url('../Avada/images/custom/icon_shop.png') center top no-repeat;width: 50px;text-align: center;}
+.header-v4 #menu-item-51 > a {background: url('../Avada/images/custom/icon_blog.png') center top no-repeat;width: 50px;text-align: center;cursor: default;}
+
+/* Slide Caption BG */
+.tp-caption.avada_big_white_text {padding: 10px !important; background: rgb(0,0,0); background: rgba(0,0,0, 0.6); }
+
+/*#content {padding-top:20px}*/
+
+.footer-area ul li a {padding: 11px 0;}
+
+/* blog content */
+#blog .excerpt-container p {margin: 0;}
+
+.page-id-25 .person-content, .page-id-25 .person-content p {text-align: center;}
+.fb-like, .fb_iframe_widget {margin-top: 10px;}
+
+.tp-caption .tp-button.reg-service {font-size: 18px;padding: 10px 20px 9px;line-height: 100px !important}
+
+.warning_mvct {color: #CB5848;text-align: center;}
