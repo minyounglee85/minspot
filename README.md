@@ -1,0 +1,2 @@
+# minspot
+GWT
